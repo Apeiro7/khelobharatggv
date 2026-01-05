@@ -12,59 +12,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com">
-
-  // EVENT FILTER
-  function filterEvents(type) {
-    document.querySelectorAll('.event-card').forEach(card => {
-      if (type === 'all') card.style.display = 'block';
-      else card.style.display = card.classList.contains(type) ? 'block' : 'none';
-    });
-  }
-
-  // COUNTDOWN TIMER (MARATHON)
-  function startCountdown(id, endDate) {
-    const el = document.getElementById(id);
-    const end = new Date(endDate).getTime();
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = end - now;
-
-      if (diff <= 0) {
-        el.innerText = '⛔ Registration Closed';
-        return;
-      }
-
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      el.innerText = `⏳ ${d} Days ${h} Hours Left`;
-    }, 1000);
-  }
-
-  startCountdown('timer-marathon', '2026-01-11');
-
-
-  
-</script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <style>
     body { font-family: 'Poppins', sans-serif; }
-
-    /* PRINT STYLES */
-          .print-area, .print-area * { visibility: visible; }
-      .print-area {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-      }
-    }
   </style>
 </head>
+
 <body class="bg-gray-100 text-gray-800">
 
 <!-- HEADER -->
@@ -76,10 +33,10 @@
   </div>
 </header>
 
-<!-- ADMIN ANNOUNCEMENT BANNER -->
+<!-- ADMIN NOTICE -->
 <section class="bg-yellow-100 border-b border-yellow-300">
   <div class="max-w-7xl mx-auto px-4 py-3 text-center text-sm font-medium text-yellow-900">
-    📌 <strong>Admin Notice:</strong> Registrations are open for selected events. Please apply before the closing date.
+    📌 <strong>Admin Notice:</strong> Registrations are open. Apply before closing date.
   </div>
 </section>
 
@@ -95,35 +52,42 @@
 <section class="max-w-7xl mx-auto py-12 px-4">
   <h3 class="text-2xl font-semibold mb-4 text-center">🏅 Sports Events Notice Board</h3>
 
-<!-- FILTER -->
-<div class="flex justify-center gap-4 mb-8">
-  <button onclick="filterEvents('all')" class="px-4 py-2 rounded-xl bg-gray-800 text-white">All</button>
-  <button onclick="filterEvents('upcoming')" class="px-4 py-2 rounded-xl bg-green-600 text-white">Upcoming</button>
-  <button onclick="filterEvents('closed')" class="px-4 py-2 rounded-xl bg-red-600 text-white">Closed</button>
-</div>
+  <!-- FILTER -->
+  <div class="flex justify-center gap-4 mb-8">
+    <button onclick="filterEvents('all')" class="px-4 py-2 rounded-xl bg-gray-800 text-white">All</button>
+    <button onclick="filterEvents('upcoming')" class="px-4 py-2 rounded-xl bg-green-600 text-white">Upcoming</button>
+    <button onclick="filterEvents('closed')" class="px-4 py-2 rounded-xl bg-red-600 text-white">Closed</button>
+  </div>
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <!-- EVENT CARD 1 -->
-    <div class="bg-white rounded-2xl shadow hover:shadow-xl transition event-card upcoming" data-end="2026-01-11">
+    <!-- EVENT CARD -->
+    <div class="bg-white rounded-2xl shadow hover:shadow-xl transition event-card upcoming">
       <img src="posters/marathon.png" class="rounded-t-2xl h-48 w-full object-cover" alt="Marathon">
-      <div class="p-5 print-area">
+
+      <div class="p-5">
         <h4 class="text-xl font-semibold">Khelo Bharat Marathon</h4>
         <p class="text-sm text-gray-500 mt-1">📅 Event Date: 11 Jan 2026</p>
         <p class="text-sm text-gray-500">📝 Apply: 6 Jan – 10 Jan 2026</p>
         <p class="text-sm font-medium text-blue-600">🎟️ Entry: FREE</p>
-        <p id="timer-marathon" class="text-sm text-red-600 mt-1">⏳ Loading countdown...</p>
-        <p id="count-marathon" class="text-sm font-semibold text-green-700 mt-2">📊 Loading registrations...</p>
-        <div class="flex gap-3 mt-4">
-        <a href="https://forms.gle/YOUR_FORM_LINK" target="_blank" rel="noopener noreferrer"
+
+        <p id="timer-marathon" class="text-sm text-red-600 mt-1">
+          ⏳ Loading countdown...
+        </p>
+
+        <p id="count-marathon" class="text-sm font-semibold text-green-700 mt-2">
+          📊 Loading registrations...
+        </p>
+
+        <a href="https://forms.gle/YOUR_FORM_LINK"
+           target="_blank"
+           rel="noopener noreferrer"
            class="mt-4 inline-block w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-xl">
           Apply Now
         </a>
       </div>
-      </div>
     </div>
 
-    <!-- EVENT CARD 2 -->
   </div>
 </section>
 
@@ -135,22 +99,45 @@
   </div>
 </footer>
 
-<!-- LIVE REGISTRATION COUNT SCRIPT -->
+<!-- SCRIPTS -->
 <script>
-  const endpoints = {
-    marathon: "YOUR_APPS_SCRIPT_URL_1",
-    football: "YOUR_APPS_SCRIPT_URL_2"
-  };
+  // FILTER
+  function filterEvents(type) {
+    document.querySelectorAll('.event-card').forEach(card => {
+      if (type === 'all') card.style.display = 'block';
+      else card.style.display = card.classList.contains(type) ? 'block' : 'none';
+    });
+  }
 
-  fetch(endpoints.marathon)
-    .then(res => res.json())
-    .then(data => document.getElementById("count-marathon").innerText = `📊 Registrations: ${data.total}`);
+  // COUNTDOWN
+  function startCountdown(id, endDate) {
+    const el = document.getElementById(id);
+    if (!el) return;
 
-  fetch(endpoints.football)
+    const end = new Date(endDate).getTime();
+
+    setInterval(() => {
+      const diff = end - Date.now();
+      if (diff <= 0) {
+        el.innerText = '⛔ Registration Closed';
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      el.innerText = `⏳ ${d} Days ${h} Hours Left`;
+    }, 1000);
+  }
+
+  startCountdown('timer-marathon', '2026-01-10');
+
+  // REGISTRATION COUNT (SAFE FOR SINGLE EVENT)
+  fetch("YOUR_APPS_SCRIPT_URL_1")
     .then(res => res.json())
-    .then(data => document.getElementById("count-football").innerText = `📊 Registrations: ${data.total}`);
+    .then(data => {
+      const el = document.getElementById("count-marathon");
+      if (el) el.innerText = `📊 Registrations: ${data.total}`;
+    });
 </script>
 
 </body>
 </html>
-
