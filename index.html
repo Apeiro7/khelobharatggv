@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Khelo Bharat GGV | ABVP</title>
+  <title>Run For Nature – Marathon | National Youth Day</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -24,33 +24,54 @@
 
 <body class="bg-gray-100 text-gray-800">
 
-<!-- HEADER -->
+<!-- ================= HEADER : COLLABORATED BANNER ================= -->
 <header class="bg-white shadow sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto flex flex-col items-center justify-center p-4 text-center">
-    <img src="logo.png" alt="Khelo Bharat Logo" class="h-14 mb-2 animate__animated animate__pulse animate__infinite" />
-    <h1 class="text-2xl font-bold">Khelo Bharat GGV</h1>
-    <p class="text-sm opacity-80">By ABVP</p>
+  <div class="max-w-7xl mx-auto px-4 py-6">
+
+    <!-- LOGO STRIP -->
+    <div class="flex flex-wrap items-center justify-center gap-6 mb-4">
+      <img src="logos/khelo-bharat.png" alt="Khelo Bharat" class="h-12 object-contain">
+      <img src="logos/abvp.png" alt="ABVP" class="h-12 object-contain">
+      <img src="logos/sfd.png" alt="Students For Development" class="h-12 object-contain">
+    </div>
+
+    <!-- EVENT TITLE -->
+    <div class="text-center">
+      <p class="text-xs uppercase tracking-widest text-gray-500">
+        On the occasion of National Youth Day
+      </p>
+
+      <h1 class="text-3xl md:text-4xl font-extrabold mt-2 animate__animated animate__fadeInDown">
+        RUN FOR NATURE
+      </h1>
+
+      <p class="text-xl font-semibold text-green-700 mt-1">
+        Marathon
+      </p>
+
+      <p class="mt-2 text-sm text-gray-600">
+        Screen Time to Green Time
+      </p>
+    </div>
+
   </div>
 </header>
 
-<!-- ADMIN NOTICE -->
+<div class="h-4"></div>
+
+<!-- ================= ADMIN NOTICE ================= -->
 <section class="bg-yellow-100 border-b border-yellow-300">
   <div class="max-w-7xl mx-auto px-4 py-3 text-center text-sm font-medium text-yellow-900">
-    📌 <strong>Admin Notice:</strong> Registrations are open. Apply before closing date.
+    📌 <strong>Admin Notice:</strong> Registrations are open. Please apply before the closing date.
   </div>
 </section>
 
-<!-- HERO -->
-<section class="bg-gradient-to-r from-orange-500 to-amber-400 text-white py-16">
-  <div class="max-w-7xl mx-auto text-center px-4">
-    <h2 class="text-4xl font-bold animate__animated animate__fadeInDown">KHELO BHARAT – GGV</h2>
-    <p class="mt-4 text-lg">Official Sports Events & Registration Portal</p>
-  </div>
-</section>
-
-<!-- NOTICE BOARD -->
+<!-- ================= NOTICE BOARD ================= -->
 <section class="max-w-7xl mx-auto py-12 px-4">
-  <h3 class="text-2xl font-semibold mb-4 text-center">🏅 Sports Events Notice Board</h3>
+
+  <h3 class="text-2xl font-semibold mb-4 text-center">
+    🏅 Sports Events Notice Board
+  </h3>
 
   <!-- FILTER -->
   <div class="flex justify-center gap-4 mb-8">
@@ -61,17 +82,29 @@
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <!-- EVENT CARD -->
+    <!-- ================= EVENT CARD ================= -->
     <div class="bg-white rounded-2xl shadow hover:shadow-xl transition event-card upcoming">
-      <img src="posters/marathon.png" class="rounded-t-2xl h-48 w-full object-cover" alt="Marathon">
+
+      <img src="posters/marathon.png"
+           alt="Run For Nature Marathon"
+           class="rounded-t-2xl h-48 w-full object-cover">
 
       <div class="p-5">
-        <h4 class="text-xl font-semibold">Khelo Bharat Marathon</h4>
-        <p class="text-sm text-gray-500 mt-1">📅 Event Date: 11 Jan 2026</p>
-        <p class="text-sm text-gray-500">📝 Apply: 6 Jan – 10 Jan 2026</p>
-        <p class="text-sm font-medium text-blue-600">🎟️ Entry: FREE</p>
+        <h4 class="text-xl font-semibold">Run For Nature – Marathon</h4>
 
-        <p id="timer-marathon" class="text-sm text-red-600 mt-1">
+        <p class="text-sm text-gray-500 mt-1">
+          📅 Event Date: <strong>11 January 2026</strong>
+        </p>
+
+        <p class="text-sm text-gray-500">
+          📝 Apply: <strong>6 Jan – 10 Jan 2026</strong>
+        </p>
+
+        <p class="text-sm font-medium text-blue-600 mt-1">
+          🎟️ Entry: ₹5 (For Boys & Girls)
+        </p>
+
+        <p id="timer-marathon" class="text-sm text-red-600 mt-2">
           ⏳ Loading countdown...
         </p>
 
@@ -86,22 +119,24 @@
           Apply Now
         </a>
       </div>
+
     </div>
 
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer class="bg-gray-900 text-gray-300 py-6">
   <div class="max-w-7xl mx-auto text-center text-sm">
-    © 2026 Khelo Bharat GGV | ABVP<br>
-    Official Website – Guru Ghasidas Vishwavidyalaya
+    © 2026 Run For Nature – Marathon<br>
+    In collaboration with Khelo Bharat, ABVP & SFD<br>
+    Police Ground, Bilaspur
   </div>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- ================= SCRIPTS ================= -->
 <script>
-  // FILTER
+  // EVENT FILTER
   function filterEvents(type) {
     document.querySelectorAll('.event-card').forEach(card => {
       if (type === 'all') card.style.display = 'block';
@@ -109,7 +144,7 @@
     });
   }
 
-  // COUNTDOWN
+  // COUNTDOWN TIMER
   function startCountdown(id, endDate) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -118,20 +153,23 @@
 
     setInterval(() => {
       const diff = end - Date.now();
+
       if (diff <= 0) {
         el.innerText = '⛔ Registration Closed';
         return;
       }
+
       const d = Math.floor(diff / (1000 * 60 * 60 * 24));
       const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+
       el.innerText = `⏳ ${d} Days ${h} Hours Left`;
     }, 1000);
   }
 
   startCountdown('timer-marathon', '2026-01-10');
 
-  // REGISTRATION COUNT (SAFE FOR SINGLE EVENT)
-  fetch("YOUR_APPS_SCRIPT_URL_1")
+  // LIVE REGISTRATION COUNT
+  fetch("YOUR_APPS_SCRIPT_URL")
     .then(res => res.json())
     .then(data => {
       const el = document.getElementById("count-marathon");
